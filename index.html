@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/slider.css">
+    <title>Image Slider</title>
+</head>
+<body>
+
+<div id="slideshow">
+    <div>
+        <img name="slide" id="imgSlideshow" src="img/Solid-900-x-500.png">
+    </div>
+</div>
+<div id="button">
+    <a href="#" id="prevBtn" onclick="return previousImage()"> <input
+            id="prev"
+            type="button"
+            value="Prev" /></a>
+    <a href="#" id="startCycle" onclick="return setTimer()"> <input
+            id="Pause"
+            type="button"
+            value="Play" /></a>
+    <a href="#" id="nextBtn" onclick="return nextImage()"> <input
+            id="next"
+            type="button"
+            value="Next" /></a>
+</div>
+<br>
+<div id="counter"></div>
+<script src="js/slider.js"></script>
+</body>
+</html>
+
