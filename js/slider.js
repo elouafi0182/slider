@@ -1,11 +1,11 @@
-var imgNumber = 0;
-var path = ["img/lambo.jpg",
+let imgNumber = 0;
+const path = ["img/lambo.jpg",
     "img/photo-1509042009371-65fa830819f1.jpg",
     "img/202554-tuning-Nissan_Skyline_GT-R_R35-Liberty_Walk-Nissan_GTR-748x421.jpg",
     "img/153211115-fbb8d05c-98f5-4b87-9673-6dddd7644042.jpg"
 ];
-var numberOfImg = path.length;
-var timer = null;
+const numberOfImg = path.length;
+let timer = null;
 
 function slide() {
     imgNumber = (imgNumber + 1) % path.length;
@@ -44,12 +44,11 @@ function nextImage() {
     return false;
 }
 function changeImage(dir) {
-    var img = document.getElementById("imgSlideshow");
+    const img = document.getElementById("imgSlideshow");
     img.src = path[path.indexOf(path.src) + (dir || 1)] || path[dir ? path.length - 1 : 1];
 }
 
-document.onkeydown = function(e) {
-    e = e || window.event;
+document.onkeydown = function(e=window.event) {
     if (e.keyCode == '37') {
         changeImage(-1) //left <- show Prev image
         --imgNumber;
@@ -71,23 +70,17 @@ document.onkeydown = function(e) {
         changeCounter(imgNumber + 1, numberOfImg);
         return false;
     }
-
 }
-
 function changeCounter(cur, total) {
-    document.getElementById("counter").innerHTML = cur + "/" + total;
+    document.getElementById("counter").innerHTML = `${cur}/${total}`;
 }
-document.getElementById("counter").innerHTML = 1 + "/" + path.length;
+document.getElementById("counter").innerHTML = `${1}/${path.length}`;
 
 
-document.getElementById("Pause").addEventListener(
-    "click",
-    function(event) {
-        if (event.target.value === "Play") {
-            event.target.value = "Pause";
-        } else {
-            event.target.value = "Play";
-        }
-    },
-    false
-);
+document.getElementById("Pause").addEventListener("click", event => {
+    if (event.target.value === "Play") {
+        event.target.value = "Pause";
+    } else {
+        event.target.value = "Play";
+    }
+}, false);
